@@ -7,29 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cliente{
-  id Int @id @default(autoincrement())
-  cpf String? @db.VarChar(20) @unique
-  nome String
-  telefones Telefone[]
-  pedidos Pedido[]
+model Usuario {
+  id    Int    @id @default(autoincrement())
+  nome  String @db.VarChar(255)
+  email String @db.VarChar(255)
+
+  tarefas Tarefa[] @relation("UsuarioTarefas")
 }
 
-model Telefone{
-  id Int @id @default(autoincrement())
-  clienteId Int
-  numero String @db.VarChar(20) @unique
-  tipo String @db.VarChar(20)
-  cliente Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+model Tarefa {
+  id           Int    @id @default(autoincrement())
+  usuarioId    Int
+  descricao    String @db.VarChar(255)
+  nomeSetor    String @db.VarChar(255)
+  prioridade   String @db.VarChar(255)
+  dataCadastro String @db.VarChar(255)
+  status       String @db.VarChar(255)
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id], name: "UsuarioTarefas")
 }
 
-model Pedido{
-  id Int @id @default(autoincrement())
-  clienteId Int
-  data DateTime @default(now())
-  produto String
-  qtd Int
-  preco Decimal @db.Decimal(10,2)
-  subTotal Decimal? @db.Decimal(10,2)
-  cliente Cliente @relation(fields: [clienteId], references: [id])
-}
