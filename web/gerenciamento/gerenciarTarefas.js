@@ -36,7 +36,6 @@ function renderCard(tarefa) {
         </div>
     `;
 
-    // Verificação se o ID de status existe no DOM
     const coluna = document.getElementById(tarefa.status);
     if (coluna) {
         coluna.appendChild(card);
