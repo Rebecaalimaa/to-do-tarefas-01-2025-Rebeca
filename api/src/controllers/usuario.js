@@ -15,7 +15,7 @@ const create = async (req, res) => {
 const read = async (req, res) => {
     const usuarios = await prisma.usuario.findMany({
         include:{
-            telefones: true
+            tarefas: true
         }
     });
     res.json(usuarios);
