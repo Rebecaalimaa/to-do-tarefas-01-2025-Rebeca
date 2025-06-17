@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cadastroU.css">
+  <title>Cadastro de Usuários</title>
+</head>
+
+<body>
+  <header>
+    <h1>Gerenciamento de Tarefas</h1>
+    <nav>
+      <ul>
+        <li><a href="../tarefas/cadastroT.html">Cadastro de Tarefas</a></li>
+        <li><a href="../gerenciamento/gerenciamento.html">Gerenciar Tarefas</a></li>
+      </ul>
+  </header>
+
+  <section id="cadastro">
+    <main>
+      <center>
+        <h2>Cadastro de Usuário</h2>
+      </center>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome:" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email:" required>
+        <br>
+        <button onclick="cadastrar()" type="submit">Cadastrar</button>
+      </form>
+    </main>
+  </section>
+</body>
+<script src="cadastroUsuario.js"></script>
+
+</html>
